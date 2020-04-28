@@ -6,14 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/outputConversion"
+    <Spinner
+        android:id="@+id/outputDropDownList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Length in Centimeters"
-        app:layout_constraintBottom_toBottomOf="@+id/inputConversion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/inputConversion" />
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginBottom="460dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/outputConversion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputDropDownList" />
+
+    <TextView
+        android:id="@+id/outputConversion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Output length"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/outputDropDownList"
+        app:layout_constraintEnd_toEndOf="@+id/inputConversion"
+        app:layout_constraintStart_toStartOf="@+id/inputConversion"
+        app:layout_constraintTop_toTopOf="@+id/outputDropDownList" />
 
     <Button
         android:id="@+id/convert"
@@ -29,12 +46,32 @@
         android:id="@+id/inputConversion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:ems="10"
-        android:hint="Length in Inches"
+        android:hint="Input length"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/convert"
-        app:layout_constraintEnd_toStartOf="@+id/outputConversion"
+        app:layout_constraintBottom_toBottomOf="@+id/inputDropDownList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/inputDropDownList"
+        app:layout_constraintTop_toTopOf="@+id/inputDropDownList" />
+
+    <Spinner
+        android:id="@+id/inputDropDownList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="110dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

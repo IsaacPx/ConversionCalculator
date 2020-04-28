@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Conversion Calculator</string>
+    <string-array name="units">
+        //0
+        <item>inches</item>
+        //1
+        <item>feet</item>
+        //2
+        <item>yards</item>
+        //3
+        <item>miles</item>
+    </string-array>
 </resources>

@@ -2,6 +2,7 @@ package com.example.conversioncalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText inputNumEditText = (EditText) findViewById(R.id.inputConversion);
         final TextView outputNumTextView = (TextView) findViewById(R.id.outputConversion);
+        inputNumEditText.setTextColor(Color.MAGENTA);
+        outputNumTextView.setTextColor(Color.BLUE);
+
         vibratorButton = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
         Button convertBtn = (Button) findViewById(R.id.convert);

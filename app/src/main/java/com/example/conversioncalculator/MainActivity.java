@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText inputNumEditText = (EditText) findViewById(R.id.inputConversion);
         final TextView outputNumTextView = (TextView) findViewById(R.id.outputConversion);
         inputNumEditText.setTextColor(Color.MAGENTA);
-        outputNumTextView.setTextColor(Color.BLUE);
+        outputNumTextView.setTextColor(Color.MAGENTA);
 
         vibratorButton = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 

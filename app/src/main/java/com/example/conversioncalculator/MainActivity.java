@@ -2,7 +2,10 @@ package com.example.conversioncalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +31,15 @@ public class MainActivity extends AppCompatActivity {
      */
     private String outputUnit;
 
+    /**
+     * vibrates device when clicked.
+     */
+    private Vibrator vibratorButton;
+
+    /**
+     * handles the conversion calculations and vibration of the device.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +47,20 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText inputNumEditText = (EditText) findViewById(R.id.inputConversion);
         final TextView outputNumTextView = (TextView) findViewById(R.id.outputConversion);
-
-
+        vibratorButton = (Vibrator) getSystemService(VIBRATOR_SERVICE);
 
         Button convertBtn = (Button) findViewById(R.id.convert);
         convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //lines 57 - 62: How To Make An Android Device Vibrate (Video) by Coding Demos on Youtube
+                if(Build.VERSION.SDK_INT >= 26) {
+                    //vibratorButton creates single vibration to device for 200 milliseconds
+                    vibratorButton.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+                } else {
+                    //else, just pass duration
+                    vibratorButton.vibrate(200);
+                }
 
                 double inputNum = Double.parseDouble(inputNumEditText.getText().toString());
                 double outputNum = inputNum * numeratorConversion / denominatorConversion;
